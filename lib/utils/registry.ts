@@ -144,6 +144,10 @@ export function isToolCallSupported(model?: string) {
   const [provider, ...modelNameParts] = model?.split(':') ?? []
   const modelName = modelNameParts.join(':')
 
+  //我们使用自定义模型，不支持工具调用
+  if (provider === 'openai-compatible') {
+    return false
+  }
   if (provider === 'ollama') {
     return false
   }
