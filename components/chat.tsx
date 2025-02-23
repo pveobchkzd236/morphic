@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 import { toast } from 'sonner'
 import { ChatMessages } from './chat-messages'
 import { ChatPanel } from './chat-panel'
+import SuggestedQuestions from './suggested-questions'
 
 export function Chat({
   id,
@@ -68,6 +69,7 @@ export function Chat({
         isLoading={isLoading}
         chatId={id}
       />
+      <SuggestedQuestions messages={messages} onSelect={(question) => console.log(question)} />
       <ChatPanel
         input={input}
         handleInputChange={handleInputChange}
